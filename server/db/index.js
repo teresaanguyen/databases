@@ -9,4 +9,12 @@ var mysql = require('mysql2');
 // OR
 // user: 'root', password: 'some_password_you_created_at_install'
 
+exports.pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  database: 'chat',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
 
