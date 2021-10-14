@@ -24,3 +24,4 @@ CREATE TABLE messages (
 
 
 
+-- insert into messages (messages, usernameId, roomname) values ('In mercy's name, three days is all I need.', (select id from usernames where username = 'Valjean'), 'Hello')

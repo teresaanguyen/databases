@@ -18,19 +18,20 @@ module.exports = {
         callback(null, results);
       }
     });
-
   },
 
   // a function which can be used to insert a message into the database
   create: function (data, callback) {
-    var { username, message, room } = data;
-    let q = `insert into messages (messages, usernameId, roomname) values ('${message}', (select id from usernames where username = '${username}'), '${room}')`;
+    var { username, message, roomname } = data;
+    console.log('controllers log', username, message, roomname);
+    let q = `insert into messages (messages, usernameId, roomname) values ('${message}', (select id from usernames where username = '${username}'), '${roomname}')`;
+    console.log('this is the query', q);
     pool.query(q, (error, results) => {
       if (error) {
         callback(error);
       } else {
-        console.log('insert successful');
-        callback(results);
+        console.log('Insert successful');
+        callback(null, results);
       }
     });
   }
